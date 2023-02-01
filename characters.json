@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "name": "Dark Maul",
+        "puissance": 76,
+        "attacks" : [
+            {
+                "name": "Sabre laser",
+                "damage": 25
+            }
+        ],
+        "type": "sith"
+    },
+    {
+        "id": 3,
+        "name": "Dark Vador",
+        "puissance": 94,
+        "attacks" : [
+            {
+                "name": "Sabre laser",
+                "damage": 25
+            },
+            {
+                "name": "Etranglement",
+                "damage": 10
+            }
+        ],
+        "type": "sith"
+    },
+    {
+        "id": 4,
+        "name": "Dark Sidious",
+        "puissance": 96,
+        "attacks" : [
+            {
+                "name": "Sabre laser",
+                "damage": 25
+            },
+            {
+                "name": "Eclair de Force",
+                "damage": 50
+            }
+        ],
+        "type": "sith"
+    },
+    {
+        "id": 5,
+        "name": "Kilo Ren",
+        "puissance": 82,
+        "attacks" : [
+            {
+                "name": "Sabre laser",
+                "damage": 25
+            }
+        ],
+        "type": "sith"
+    },
+    {
+        "id": 6,
+        "name": "Obi Wan Kenobi",
+        "puissance": 88,
+        "attacks" : [
+            {
+                "name": "Sabre laser",
+                "damage": 25
+            }
+        ],
+        "type": "jedi"
+    },
+    {
+        "id": 7,
+        "name": "Yoda",
+        "puissance": 91,
+        "attacks" : [
+            {
+                "name": "Sabre laser",
+                "damage": 25
+            }
+        ],
+        "type": "jedi"
+    },
+    {
+        "id": 8,
+        "name": "Rey",
+        "puissance": 72,
+        "attacks": [
+            {
+                "name": "Sabre laser",
+                "damage": 25
+            },
+            {
+                "name": "Blaster",
+                "damage": 5
+            }
+        ],
+        "type": "jedi"
+    },
+    {
+        "id": 9,
+        "name": "Luke Skywalker",
+        "puissance": 95,
+        "attacks": [
+            {
+                "name": "Sabre laser",
+                "damage": 25
+            },
+            {
+                "name": "Blaster",
+                "damage": 5
+            }
+        ],
+        "type": "jedi"
+    }
+]

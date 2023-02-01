@@ -1,0 +1,125 @@
+* {
+  box-sizing: border-box;
+}
+
+@font-face {
+  font-family: "StarWars";
+  src: url("../fonts/starjedi-webfont.woff") format("woff");
+  src: url("../fonts/starjedi-webfont.woff2") format("woff2");
+}
+body {
+  background-image: url("../img/stars.jpg");
+  font-family: "StarWars";
+}
+body h1 {
+  color: #FFE919;
+  text-align: center;
+}
+body h2, body h3, body h4, body h5 {
+  text-align: center;
+  color: white;
+}
+body .color-jedi {
+  background-color: rgb(0, 114, 180);
+}
+body .color-sith {
+  background-color: red;
+}
+body .container {
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+body .container .items {
+  flex: 0 0 21%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+body .container .items img {
+  width: 100%;
+}
+body .container .items img:hover {
+  transform: scale(1.07);
+}
+body .container .items .power-indicator {
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90px;
+  bottom: 0;
+  right: 30%;
+  background-color: rgb(56, 52, 52);
+}
+body .container .items .power-indicator .saber-svg {
+  width: 35px;
+  transform: rotateZ(45deg);
+  margin-bottom: 10px;
+}
+body .container .items .power-indicator a {
+  color: white;
+  font-size: 1.3rem;
+}
+body .container .items .power-indicator hr {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  border: none;
+}
+body .duel-container {
+  display: flex;
+  width: 1200px;
+  margin: 0 auto;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+body .duel-items {
+  flex: 0 0 21%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+}
+body .duel-items img {
+  width: 100%;
+}
+body .duel-items img:hover {
+  transform: scale(1.07);
+}
+body .duel-items .duel-power-indicator {
+  display: flex;
+  position: absolute;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 90px;
+  bottom: 0;
+  right: 30%;
+  height: 50px;
+  background-color: rgb(56, 52, 52);
+}
+body .duel-items .duel-power-indicator .duel-saber-svg {
+  width: 35px;
+  transform: rotateZ(45deg);
+  margin-bottom: 10px;
+}
+body .duel-items .duel-power-indicator p {
+  color: white;
+  font-size: 1.3rem;
+}
+body .duel-items .duel-power-indicator a {
+  color: white;
+}
+body .duel-items .duel-power-indicator hr {
+  position: absolute;
+  bottom: -10px;
+  left: 0;
+  right: 0;
+  height: 10px;
+  border: none;
+}
+
+/*# sourceMappingURL=main.css.map */

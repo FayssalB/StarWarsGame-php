@@ -1,0 +1,134 @@
+@import "reset";
+@font-face {
+  font-family: "StarWars";
+  src: url("../fonts/starjedi-webfont.woff") format("woff");
+  src: url("../fonts/starjedi-webfont.woff2") format("woff2");
+}
+body{
+   background-image: url("../img/stars.jpg");
+  font-family: "StarWars";
+  h1{
+    color: #FFE919;
+    text-align: center;
+  }
+  h2,h3,h4,h5{
+    text-align: center;
+    color: white;
+  }  
+  
+  .color-jedi{
+    background-color: rgb(0, 114, 180) ;
+  }
+  .color-sith{
+    background-color: red;
+  }
+
+  .container{
+    display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+  
+
+    .items{
+      flex:0 0 21%;
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 20px;
+
+     
+      img{
+        width: 100%;
+        &:hover{
+          transform: scale(1.07);
+        }
+      }
+      .power-indicator {
+        display: flex;
+        position: absolute;
+        justify-content: space-evenly;
+        align-items: center;
+        width:90px;
+        bottom: 0;
+        right: 30%;
+        background-color: rgb(56, 52, 52);
+
+
+        .saber-svg{
+          width: 35px;
+          transform: rotateZ(45deg);
+          margin-bottom: 10px;
+        }
+        a{
+          color: white;
+          font-size: 1.3rem;
+        }
+        hr{
+          position: absolute;
+          bottom:-10px;
+          left: 0;
+          right: 0;
+          height: 10px;
+          border: none;
+          
+        }
+        
+      }
+    } 
+  }
+.duel-container{
+  display: flex;
+    width: 1200px;
+    margin: 0 auto;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.duel-items{
+  flex:0 0 21%;
+  position: relative;
+  overflow: hidden;
+  margin-bottom: 20px;
+
+ 
+  img{
+    width: 100%;
+    &:hover{
+      transform: scale(1.07);
+    }
+  }
+  .duel-power-indicator {
+    display: flex;
+    position: absolute;
+    justify-content: space-evenly;
+    align-items: center;
+    width:90px;
+    bottom: 0;
+    right: 30%;
+    height: 50px;
+    background-color: rgb(56, 52, 52);
+
+
+    .duel-saber-svg{
+      width: 35px;
+      transform: rotateZ(45deg);
+      margin-bottom: 10px;
+    }
+    p{
+      color: white;
+      font-size: 1.3rem;
+    }
+    a{color: white;}
+    hr{
+      position: absolute;
+      bottom:-10px;
+      left: 0;
+      right: 0;
+      height: 10px;
+      border: none;
+    }
+    
+  }
+} 
+}
+ 
