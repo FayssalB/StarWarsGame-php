@@ -2,27 +2,52 @@
 $json = file_get_contents("characters.json");
 
 $datas = json_decode($json);
+session_start();
 
-// class Attack
-// {
-//     public string $name ;
-//     public int $puissance ;
-//     public int $attacks ;
+class Character 
+{
+    public int $id;
+    public int $pv;
+    public string $name;
+    public string $type;
+
+    public function __construct(int $id,int $pv,string $name,string $type)
+    {
+        $this->id = $id;
+        $this->pv = $pv;
+        $this->name = $name;
+        $this->type = $type;
+
+    }
+
+    public function getCharacterInfos():string{
+
+        return "{$this->id} {$this->name} {$this->type} ";
+    }
+
     
-//     public function __construct(string $name, int $attacks, int $puissance)
-//     {
-//         $this->name = $name;
-//         $this->attacks = $attacks;
-//         $this->puissance = $puissance;
+}
 
-//     }
 
-//     public function getAttackDamage():int{
-//         return "{$this->puissance}" * "{$this->attacks}" / 100 ;
-//     }
-// }
-// $darkMaul= new Attack("Dark Maul", 25,76);
-// echo $darkMaul->getAttackDamage();
+class Attack
+{
+    public string $name;
+    public int $puissance ;
+    public int $attacks ;
+    
+    public function __construct(string $name,int $attacks, int $puissance)
+    {   
+        $this->name = $name;
+        $this->attacks = $attacks;
+        $this->puissance = $puissance;
+
+    }
+
+    public function getAttackDamage():int{
+        return "{$this->puissance}" * "{$this->attacks}" / 100 ;
+    }
+}
+
 
 require("templates/header.php");
 
@@ -36,7 +61,6 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     $id = $_GET["id"];
     foreach ($datas as $data) {
         if ($data->id == $id) {
-            echo $_GET["id"];
 ?>
             <div class="duel-container">
                 <div class="duel-items">
@@ -46,9 +70,25 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                         <p><?= $data->puissance ?></p>
                         <hr class="color-<?= $data->type ?>">
                     </div>
-                    
+
                 </div>
-                <h3>attaques: <a href="" value="sabre-laser">fhfg</a></h3>
+
+
+                <h3>attaques: 
+                    <?php
+                        foreach($data->attacks as $attack){
+                            ?>
+                                <a href="duel.php?id=<?=$data->id?>&attaque=<?= $attack->name ?>"><?= $attack->name ?></a>
+
+                                
+                            <?php
+                        }
+                    ?>
+                   
+                </h3>
+
+         
+
 
     <?php
         }
@@ -56,16 +96,38 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 }
     ?>
 
-    <div>
+    <div> 
         <h4>historique du combat</h4>
-        <h5><?php include("test.php")?></h5>
+        <?php 
+        
+
+        if(isset($_GET["attaque"] ) && !empty($_GET["attaque"])){
+        
+        $darkMaul= new Attack("Dark Maul", 25,76);
+
+        $_SESSION["attaque"]= [];
+
+        array_push($_SESSION["attaque"],$darkMaul->getAttackDamage(),20);
+
+        echo "<p class=\"php-text-container\">{$_SESSION["attaque"][0]}</p>";
+
+       
+        // echo "<p class=\"php-text-container\">l'attaque à infligé {$_SESSION["attaque"]}</p>";
+
+        // echo "<p class=\"php-text-container\">{$darkMaul->getAttackDamage()}</p>";
+        $_SESSION["attaque"]="";
+        
+    }   
+              
+?>
     </div>
 
 
     <?php
     $randomNumber = rand(1, 9);
+    $_SESSION["randomNumber"] = $randomNumber;
     foreach ($datas as $data) {
-        if ($data->id == $randomNumber) {
+        if ($data->id == $_SESSION["randomNumber"]) {
     ?>
 
             <div class="duel-items">

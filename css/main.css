@@ -78,6 +78,9 @@ body .duel-container {
   flex-wrap: wrap;
   justify-content: space-evenly;
 }
+body .duel-container p.php-text-container {
+  color: rgb(255, 255, 255);
+}
 body .duel-items {
   flex: 0 0 21%;
   position: relative;

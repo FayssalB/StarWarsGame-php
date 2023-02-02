@@ -16,6 +16,7 @@ body{
     color: white;
   }  
   
+  
   .color-jedi{
     background-color: rgb(0, 114, 180) ;
   }
@@ -83,6 +84,10 @@ body{
     margin: 0 auto;
     flex-wrap: wrap;
     justify-content: space-evenly;
+
+    p.php-text-container{
+      color:rgb(255, 255, 255);
+    }
 }
 .duel-items{
   flex:0 0 21%;
