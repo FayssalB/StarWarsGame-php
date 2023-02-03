@@ -1,8 +1,9 @@
 <?php
-$json = file_get_contents("characters.json");
-
-$datas = json_decode($json);
 session_start();
+$json = file_get_contents("characters.json");
+$datas = json_decode($json);
+
+
 
 class Character 
 {
@@ -86,10 +87,6 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
                     ?>
                    
                 </h3>
-
-         
-
-
     <?php
         }
     }
@@ -102,45 +99,55 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
         
 
         if(isset($_GET["attaque"] ) && !empty($_GET["attaque"])){
-        
-        $darkMaul= new Attack("Dark Maul", 25,76);
 
-        $_SESSION["attaque"]= [];
-
-        array_push($_SESSION["attaque"],$darkMaul->getAttackDamage(),20);
-
-        echo "<p class=\"php-text-container\">{$_SESSION["attaque"][0]}</p>";
-
-       
-        // echo "<p class=\"php-text-container\">l'attaque à infligé {$_SESSION["attaque"]}</p>";
-
-        // echo "<p class=\"php-text-container\">{$darkMaul->getAttackDamage()}</p>";
-        $_SESSION["attaque"]="";
+            $darkMaul= new Attack("Dark Maul", 25,76);
+            $_SESSION["attaque"]= [];
+            array_push($_SESSION["attaque"],$darkMaul->getAttackDamage(),20);
+            echo "<p class=\"php-text-container\">{$_SESSION["attaque"][0]}</p>";
+            // echo "<p class=\"php-text-container\">l'attaque à infligé {$_SESSION["attaque"]}</p>";
+            // echo "<p class=\"php-text-container\">{$darkMaul->getAttackDamage()}</p>";
+            $_SESSION["attaque"]="";
         
     }   
               
 ?>
     </div>
 
-
     <?php
-    $randomNumber = rand(1, 9);
-    $_SESSION["randomNumber"] = $randomNumber;
-    foreach ($datas as $data) {
-        if ($data->id == $_SESSION["randomNumber"]) {
-    ?>
+   var_dump($_GET);
+    $randomId;
+    if(!isset($_SESSION["randomId"]) && isset($_GET["id"]))
+    {   
+        $_SESSION["randomId"] = rand(2,9);
+        $randomId = $_SESSION["randomId"];
+    }
+    elseif(isset($_SESSION["randomId"])  && !isset($_GET["id"]))
+    {
+        $_SESSION["randomId"] = rand(2,9);
+        $randomId = $_SESSION["randomId"];
+        echo "SUIAUSUSDFSGSS";
+    }else
+    {   echo $_GET["id"];
+        $randomId = $_SESSION["randomId"];
+    }
 
+        foreach ($datas as $data) {
+            
+            if ($data->id == $randomId ) {
+    ?>
             <div class="duel-items">
-                <img src="img/characters/<?= $randomNumber ?>.jpg" alt="">
+                <img src="img/characters/<?= $randomId ?>.jpg" alt="">
                 <div class="duel-power-indicator">
-                    <img class="duel-saber-svg" src="<?= $data[$randomNumber]->type == "sith" ? "img/sithsaber.svg" : "img/jedisaber.svg" ?>" alt="">
-                    <a><?= $data[$randomNumber]->puissance ?></a>
-                    <hr class="color-<?= $data[$randomNumber]->type ?>">
+                    <img class="duel-saber-svg" src="<?= $data[$randomId]->type == "sith" ? "img/sithsaber.svg" : "img/jedisaber.svg" ?>" alt="">
+                    <a><?= $data[$randomId]->puissance ?></a>
+                    <hr class="color-<?= $data[$randomId]->type ?>">
                 </div>
             </div>
             </div>
     <?php
+            }
         }
-    }
+        
+  
     include("templates/footer.php");
     ?>

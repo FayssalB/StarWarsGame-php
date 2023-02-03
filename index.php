@@ -8,6 +8,14 @@ $file = file_get_contents('characters.json');
 $datas = json_decode($file);
 require("templates/header.php");
 // var_dump($datas[1]->attacks[1]->name);
+
+// if(isset($_GET["id"])){
+//     echo "okokokoko";
+// }elseif(!isset($_GET["id"]) &&  isset($_SESSION["randomId"])){
+//     echo "noonononon";
+//     $_SESSION["randomId"] = rand(2,9);
+// }
+
 ?>
 <h3>selection du personnage</h3>
 <div class="container">
