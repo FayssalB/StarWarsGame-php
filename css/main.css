@@ -93,36 +93,5 @@ body .duel-items img {
 body .duel-items img:hover {
   transform: scale(1.07);
 }
-body .duel-items .duel-power-indicator {
-  display: flex;
-  position: absolute;
-  justify-content: space-evenly;
-  align-items: center;
-  width: 90px;
-  bottom: 0;
-  right: 30%;
-  height: 50px;
-  background-color: rgb(56, 52, 52);
-}
-body .duel-items .duel-power-indicator .duel-saber-svg {
-  width: 35px;
-  transform: rotateZ(45deg);
-  margin-bottom: 10px;
-}
-body .duel-items .duel-power-indicator p {
-  color: white;
-  font-size: 1.3rem;
-}
-body .duel-items .duel-power-indicator a {
-  color: white;
-}
-body .duel-items .duel-power-indicator hr {
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  right: 0;
-  height: 10px;
-  border: none;
-}
 
 /*# sourceMappingURL=main.css.map */

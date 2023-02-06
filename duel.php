@@ -74,30 +74,22 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
 
                 </div>
 
-
                 <h3>attaques: 
                     <?php
                         foreach($data->attacks as $attack){
                             ?>
-                                <a href="duel.php?id=<?=$data->id?>&attaque=<?= $attack->name ?>"><?= $attack->name ?></a>
-
-                                
+                            <a href="duel.php?id=<?=$data->id?>&attaque=<?= $attack->name ?>"><?= $attack->name ?></a>
                             <?php
                         }
-                    ?>
-                   
+                    ?>  
                 </h3>
     <?php
-        }
-    }
-}
-    ?>
+}}}?>
 
     <div> 
         <h4>historique du combat</h4>
         <?php 
         
-
         if(isset($_GET["attaque"] ) && !empty($_GET["attaque"])){
 
             $darkMaul= new Attack("Dark Maul", 25,76);
@@ -114,34 +106,46 @@ if (isset($_GET["id"]) && !empty($_GET["id"])) {
     </div>
 
     <?php
-   var_dump($_GET);
-    $randomId;
+
+    $array_id = $_SESSION["tableau"] = [1,3,4,5,6,7,8,9];
+    $_SESSION["randomId"]= shuffle($_SESSION["tableau"]);
+    $randomId = $_SESSION["randomId"]; 
+   
+    
     if(!isset($_SESSION["randomId"]) && isset($_GET["id"]))
+    {      
+        $_SESSION["randomId"]= shuffle($_SESSION["tableau"]);
+        $randomId = $_SESSION["randomId"]; 
+    }
+    elseif(isset($_SESSION["randomId"]) && isset($_GET["id"]))
     {   
-        $_SESSION["randomId"] = rand(2,9);
-        $randomId = $_SESSION["randomId"];
+        $randomId = $_SESSION["new"];
     }
-    elseif(isset($_SESSION["randomId"])  && !isset($_GET["id"]))
-    {
-        $_SESSION["randomId"] = rand(2,9);
-        $randomId = $_SESSION["randomId"];
-        echo "SUIAUSUSDFSGSS";
-    }else
-    {   echo $_GET["id"];
-        $randomId = $_SESSION["randomId"];
-    }
+
 
         foreach ($datas as $data) {
             
             if ($data->id == $randomId ) {
     ?>
             <div class="duel-items">
-                <img src="img/characters/<?= $randomId ?>.jpg" alt="">
+                <img src="img/characters/<?=$randomId?>.jpg" alt="">
                 <div class="duel-power-indicator">
-                    <img class="duel-saber-svg" src="<?= $data[$randomId]->type == "sith" ? "img/sithsaber.svg" : "img/jedisaber.svg" ?>" alt="">
+                    <img class="duel-saber-svg" src="<?=$data[$randomId]->type == "sith" ? "img/sithsaber.svg" : "img/jedisaber.svg" ?>" alt="">
                     <a><?= $data[$randomId]->puissance ?></a>
                     <hr class="color-<?= $data[$randomId]->type ?>">
                 </div>
+
+                 <h3>attaques: 
+                    <?php
+                        foreach($data->attacks as $attack){
+                            ?>
+                                <a href="duel.php?id=<?=$data->id?>&attaque=<?= $attack->name ?>"><?= $attack->name ?></a>
+
+                            <?php
+                        }
+                    ?>
+                   
+                </h3>
             </div>
             </div>
     <?php

@@ -1,4 +1,5 @@
 <?php
+session_start();
 // https://www.edureka.co/blog/header-location-in-php/
 // https://codes-sources.commentcamarche.net/forum/affich-468530-comment-executer-une-fonction-php-en-appuyant-sur-un-bouton-formulaire
 // https://forum.hardware.fr/hfr/Programmation/PHP/executer-fonction-bouton-sujet_147048_1.htm
@@ -7,6 +8,16 @@ $file = file_get_contents('characters.json');
 
 $datas = json_decode($file);
 require("templates/header.php");
+
+
+
+if (isset($_SESSION["randomId"])){
+    $index_key = array_rand($_SESSION["tableau"], 1);
+    $value = $_SESSION["tableau"][$index_key];
+    $_SESSION["new"] = $value;
+    $randomId = $_SESSION["new"];
+} 
+
 // var_dump($datas[1]->attacks[1]->name);
 
 // if(isset($_GET["id"])){

@@ -102,38 +102,7 @@ body{
       transform: scale(1.07);
     }
   }
-  .duel-power-indicator {
-    display: flex;
-    position: absolute;
-    justify-content: space-evenly;
-    align-items: center;
-    width:90px;
-    bottom: 0;
-    right: 30%;
-    height: 50px;
-    background-color: rgb(56, 52, 52);
-
-
-    .duel-saber-svg{
-      width: 35px;
-      transform: rotateZ(45deg);
-      margin-bottom: 10px;
-    }
-    p{
-      color: white;
-      font-size: 1.3rem;
-    }
-    a{color: white;}
-    hr{
-      position: absolute;
-      bottom:-10px;
-      left: 0;
-      right: 0;
-      height: 10px;
-      border: none;
-    }
-    
-  }
+  
 } 
 }
  
